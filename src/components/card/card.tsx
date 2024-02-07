@@ -1,6 +1,6 @@
 export default function Card({ children, bgColor }: { children: any, bgColor?: string }) {
     return (
-        <div className={`${bgColor} mt-20 mb-20 rounded-3xl shadow-xl h-1/3 w-3/4`}>
+        <div className={`${bgColor} rounded-3xl shadow-xl w-5/6 p-5`}>
             {children}
         </div>
     );

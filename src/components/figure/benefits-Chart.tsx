@@ -20,7 +20,7 @@ const data = {
                 gradient.addColorStop(1, 'rgba(252,227,152, 0.8)');
                 return gradient;
             },
-            borderColor: 'rgb(75, 192, 192)',
+            borderColor: 'rgba(180,98,98,0)',
             tension: 0.4,
         },
     ],
