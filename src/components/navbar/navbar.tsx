@@ -3,7 +3,7 @@ import NavarbarIcon from "@/components/navbar/navarbar-icon";
 export default function Navbar()
 {
     return(
-        <nav className="flex p-5 bg-white">
+        <nav className="flex p-5 bg-white h-1/12">
             <div className="w-2/5 flex pl-3 justify-between">
                 <NavarbarIcon src="/menu-icon1.png" alt="Icon 1" width={40} height={40} />
                 <NavarbarIcon src="/menu-icon2.png" alt="Icon 2" width={40} height={40} />
