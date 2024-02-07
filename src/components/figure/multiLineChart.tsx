@@ -8,7 +8,7 @@ const data = {
     datasets: [
         {
             label: '1',
-            data: [20, 23, 22, 20, 20, 19, 19, 19, 19, 22, 23, 24], // Exemple de données pour Dataset 1
+            data: [20, 23, 22, 20, 20, 19, 19, 19, 19, 22, 23, 24],
             borderColor: '#d000ff',
             borderWidth: 2,
             borderDash: [5, 5],
@@ -16,7 +16,7 @@ const data = {
         },
         {
             label: '2',
-            data: [5, 12, 10, 18, 25, 22, 22, 23, 17, 18, 18, 27], // Exemple de données pour Dataset 2
+            data: [5, 12, 10, 18, 25, 22, 22, 23, 17, 18, 18, 27],
             borderColor: '#2dd087',
             borderWidth: 2,
             tension: 0.4

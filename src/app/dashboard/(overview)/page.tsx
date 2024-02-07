@@ -1,14 +1,16 @@
+'use client';
+
 import dynamic from 'next/dynamic';
-import Navbar from "@/components/navbar/navbar";
 import Title from "@/components/title/title";
 import TransactionButton from "@/components/buttons/transaction-button";
-import {Suspense} from "react";
+import {Suspense, useState} from "react";
 import Card from "@/components/card/card";
 import CardItem from "@/components/card/card-item";
 import BenefitsChart from "@/components/figure/benefits-Chart";
 import ProfileCard from "@/components/profile/profile";
 import ActionButton from "@/components/buttons/action-button";
 import MultiLineChart from "@/components/figure/multiLineChart";
+import TransactionPopup from "@/components/popup/transaction-popup";
 
 const Donut = dynamic(() => import('@/components/figure/donut'), {
     suspense: true,
@@ -16,8 +18,27 @@ const Donut = dynamic(() => import('@/components/figure/donut'), {
 });
 
 export default function Home() {
+    const [isPopupOpen, setPopupOpen] = useState(false);
+    const [popupAction, setPopupAction] = useState('');
+    const [popupInputLabel, setPopupInputLabel] = useState('');
+
+    const openPopup = (action: string, label: string) => {
+        setPopupAction(action);
+        setPopupInputLabel(label);
+        setPopupOpen(true);
+    };
+
   return (
     <main className="w-full h-full flex">
+
+        {isPopupOpen && (
+            <TransactionPopup
+                onClose={() => setPopupOpen(false)}
+                title={popupAction}
+                buttonText={popupAction}
+                topinputLabel={popupInputLabel}
+            />
+        )}
 
             {/* Left dashboard part */}
 
@@ -31,9 +52,17 @@ export default function Home() {
                         subtitlesize={"text-7xl mt-4 font-black"}
                         titlesize={"text-4xl"}/>
                     <div className="flex mt-8">
-                        <TransactionButton title={"Send"} src={"/transaction-icon1.png"}/>
-                        <TransactionButton title={"Receive"} src={"/transaction-icon1.png"}/>
-                        <TransactionButton title={"..."}  src={""}/>
+                        <TransactionButton
+                            title={"Send"}
+                            src={"/transaction-icon1.png"}
+                            onClick={() => openPopup("Send", "Send to")}
+                        />
+                        <TransactionButton
+                            title={"Receive"}
+                            src={"/transaction-icon1.png"}
+                            onClick={() => openPopup("Receive", "Receive from")}
+                        />
+                        <TransactionButton title={"..."}  src={""} />
                     </div>
                 </div>
                 <div className="h-1/3 mt-20">

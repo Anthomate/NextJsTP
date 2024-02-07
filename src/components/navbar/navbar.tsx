@@ -1,3 +1,5 @@
+'use client';
+
 import Image from "next/image";
 import { AiOutlineAppstore } from "react-icons/ai";
 import { AiOutlinePieChart } from "react-icons/ai";
