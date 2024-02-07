@@ -1,15 +1,10 @@
 import Image from "next/image";
 
-export default function NavarbarIcon({src, alt, width, height}: { src: string, alt: string, width: number, height: number })
+export default function NavarbarIcon({children}: { children: any })
 {
     return(
-        <div>
-            <Image
-                src={src}
-                alt={alt}
-                width={width}
-                height={height}
-            />
+        <div className="text-4xl">
+            {children}
         </div>
     )
 }
