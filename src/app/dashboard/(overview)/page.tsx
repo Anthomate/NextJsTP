@@ -11,6 +11,8 @@ import ProfileCard from "@/components/profile/profile";
 import ActionButton from "@/components/buttons/action-button";
 import MultiLineChart from "@/components/figure/multiLineChart";
 import TransactionPopup from "@/components/popup/transaction-popup";
+import { CiCalendar } from "react-icons/ci";
+import { LuSettings } from "react-icons/lu";
 
 const Donut = dynamic(() => import('@/components/figure/donut'), {
     suspense: true,
@@ -74,9 +76,11 @@ export default function Home() {
                         titlesize={"text-2xl"}
                         subtitlesize={"text-xl"}
                     />
-                    <Suspense fallback={`Loading...`}>
-                        <Donut />
-                    </Suspense>
+                    <div className="ml-16">
+                        <Suspense fallback={`Loading...`}>
+                            <Donut />
+                        </Suspense>
+                    </div>
                 </div>
             </div>
 
@@ -139,13 +143,24 @@ export default function Home() {
 
                 <div>
                     <Card bgColor={"bg-white"}>
-                        <div>
-                        <Title title={"Benefits"}
-                               subtitle={""}
-                               othertitle={""}
-                               titlesize={"text-lg"}
-                               subtitlesize={""}
-                               othertitlesize={""} />
+                        <div className="flex justify-between items-center">
+                            <div>
+                                <Title title={"Benefits"}
+                                       subtitle={""}
+                                       othertitle={""}
+                                       titlesize={"text-lg"}
+                                       subtitlesize={""}
+                                       othertitlesize={""} />
+                            </div>
+                            <div className="flex gap-2">
+                                <button className="icon-button flex items-center bg-gray-200 p-1 rounded-lg">
+                                    <CiCalendar size={30} />
+                                    <p className="text-sm ml-1">June - December <span className="font-semibold">˅</span></p>
+                                </button>
+                                <button className="icon-button flex items-center bg-gray-200 p-1 rounded-lg">
+                                    <LuSettings size={30} />
+                                </button>
+                            </div>
                         </div>
                         <div className="w-5/6">
                             <BenefitsChart />

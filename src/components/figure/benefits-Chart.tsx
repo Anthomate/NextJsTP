@@ -32,6 +32,9 @@ const options = {
         legend: {
             display: false,
         },
+        tooltip: {
+            enabled: false,
+        }
     },
     scales: {
         y: {
@@ -40,6 +43,11 @@ const options = {
                 stepSize: 2,
             }
         },
+    },
+    elements: {
+        point:{
+            radius: 0
+        }
     },
 };
 

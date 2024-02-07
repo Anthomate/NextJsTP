@@ -4,6 +4,22 @@ import { Doughnut } from 'react-chartjs-2';
 import 'chart.js/auto';
 import { Chart } from "chart.js";
 
+const getGradient = (ctx:any, chartArea:any) => {
+    const {left, right, top, bottom, width, height} = chartArea;
+    let gradient = ctx.createRadialGradient(
+        width / 2,
+        height / 2,
+        0,
+        width / 2,
+        height / 2,
+        width / 2
+    );
+    gradient.addColorStop(0, '#F0FF72');
+    gradient.addColorStop(1, '#41F7A1');
+
+    return gradient;
+};
+
 const data = {
     labels: ['NFT Assets', 'Stocks', 'Crypto'],
     datasets: [
