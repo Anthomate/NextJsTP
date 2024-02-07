@@ -17,15 +17,7 @@ const Donut = dynamic(() => import('@/components/figure/donut'), {
 
 export default function Home() {
   return (
-    <main className="w-full h-full">
-
-        {/* NavBar */}
-
-        <Navbar />
-
-        {/* Main Dashboard content */}
-
-        <div className="w-full h-4/5 flex">
+    <main className="w-full h-full flex">
 
             {/* Left dashboard part */}
 
@@ -172,7 +164,6 @@ export default function Home() {
                                   title={"More"} />
                 </div>
             </div>
-        </div>
     </main>
   );
 }
