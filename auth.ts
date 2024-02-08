@@ -3,8 +3,8 @@ import Credentials from 'next-auth/providers/credentials';
 import { authConfig } from './auth.config';
 import { z } from 'zod';
 import { sql } from '@vercel/postgres';
-import bcrypt from "bcrypt";
-import {User} from "@/lib/models/user";
+import type { User } from '@/lib/models/user';
+import bcrypt from 'bcrypt';
 
 async function getUser(email: string): Promise<User | undefined> {
     try {
@@ -31,7 +31,7 @@ export const { auth, signIn, signOut } = NextAuth({
                     if (!user) return null;
                     const passwordsMatch = await bcrypt.compare(password, user.password);
 
-                    if (!passwordsMatch) return user;
+                    if (passwordsMatch) return user;
                 }
 
                 console.log('Invalid credentials');
