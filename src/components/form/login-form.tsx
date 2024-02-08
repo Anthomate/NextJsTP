@@ -1,14 +1,8 @@
-'use client';
-
-import { useFormState, useFormStatus } from 'react-dom';
-import { authenticate} from "@/lib/authenticate";
-
 export default function LoginForm()
 {
-    const [errorMessage, dispatch] = useFormState(authenticate, undefined);
     return(
         <div className="w-full max-w-xs">
-            <form action={dispatch} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
                 <div className="mb-4">
                     <label className="block text-gray-700 text-sm font-bold mb-2"
                            htmlFor="email">

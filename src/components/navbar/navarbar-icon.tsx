@@ -1,5 +1,3 @@
-'use client';
-
 import Link from 'next/link';
 
 export default function NavbarIcon({ children, href, onClick, active }: { children: any; href: string; onClick: () => void; active: boolean }) {
