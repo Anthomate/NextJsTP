@@ -27,7 +27,7 @@ export default function MultiLineChart() {
     const [chartData, setChartData] = useState<ChartData>(defaultChartData);
 
     useEffect(() => {
-        fetch('/api/chartData')
+        fetch('../../lib/endpoints/chart-data')
             .then(response => response.json())
             .then((data: ApiResponse) => {
                 setChartData(data.chartData);
