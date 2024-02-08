@@ -1,51 +1,62 @@
-'use client';
-
+import React, { useEffect, useState } from 'react';
 import { Line } from 'react-chartjs-2';
 import 'chart.js/auto';
 
-const data = {
-    labels: ["", "", "", "", "", "", "", "", "", "", "", ""],
-    datasets: [
-        {
-            label: '1',
-            data: [20, 23, 22, 20, 20, 19, 19, 19, 19, 22, 23, 24],
-            borderColor: '#d000ff',
-            borderWidth: 2,
-            borderDash: [5, 5],
-            tension: 0.4
-        },
-        {
-            label: '2',
-            data: [5, 12, 10, 18, 25, 22, 22, 23, 17, 18, 18, 27],
-            borderColor: '#2dd087',
-            borderWidth: 2,
-            tension: 0.4
-        }
-    ]
+type ChartData = {
+    labels: string[];
+    datasets: Array<{
+        label: string;
+        data: number[];
+        borderColor: string;
+        borderWidth: number;
+        borderDash?: number[];
+        tension: number;
+    }>;
 };
 
-const options = {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-        legend: {
-            display: false,
-        }
-    },
-    scales: {
-        x: {
-            grid: {
-                display: false
-            }
-        },
-        y: {
-            grid: {
-                display: false
-            }
-        }
-    }
+type ApiResponse = {
+    chartData: ChartData;
+};
+
+const defaultChartData: ChartData = {
+    labels: [],
+    datasets: []
 };
 
 export default function MultiLineChart() {
-    return <Line data={data} options={options} />;
+    const [chartData, setChartData] = useState<ChartData>(defaultChartData);
+
+    useEffect(() => {
+        fetch('/api/chartData')
+            .then(response => response.json())
+            .then((data: ApiResponse) => {
+                setChartData(data.chartData);
+            })
+            .catch(error => console.error('Error fetching chart data:', error));
+    }, []);
+
+    // Options pour Chart.js
+    const options = {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                display: false,
+            }
+        },
+        scales: {
+            x: {
+                grid: {
+                    display: false
+                }
+            },
+            y: {
+                grid: {
+                    display: false
+                }
+            }
+        }
+    };
+
+    return <Line data={chartData} options={options} />;
 }
