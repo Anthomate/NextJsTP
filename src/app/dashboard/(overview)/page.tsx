@@ -113,30 +113,38 @@ export default function Home() {
                             </div>
                         </div>
                         <div className="flex justify-between">
-                            <CardItem src={"/card-item1.png"}
-                                      alt={"Bitcoin"} width={50}
-                                      height={50} title={"Bitcoin"}
-                                      subtitle={"$2,467.30"}
-                                      othertitle={""} />
-                            <CardItem src={"/card-item2.png"}
-                                      alt={"Etherium"} width={50}
-                                      height={50} title={"Etherium"}
-                                      subtitle={"$1,990.01"}
-                                      othertitle={""} />
-                            <CardItem src={"/card-item3.png"}
-                                      alt={"Dash"}
-                                      width={50}
-                                      height={50}
-                                      title={"Dash"}
-                                      subtitle={"$1,455.10"}
-                                      othertitle={""} />
-                            <CardItem src={"/card-item4.png"}
-                                      alt={"Edo"}
-                                      width={50}
-                                      height={50}
-                                      title={"Edo"}
-                                      subtitle={"$988.07"}
-                                      othertitle={""} />
+                            <Suspense fallback={<p>Loading...</p>}>
+                                <CardItem src={"/card-item1.png"}
+                                          alt={"Bitcoin"} width={50}
+                                          height={50} title={"Bitcoin"}
+                                          subtitle={"$2,467.30"}
+                                          othertitle={""} />
+                            </Suspense>
+                            <Suspense fallback={<p>Loading...</p>}>
+                                <CardItem src={"/card-item2.png"}
+                                          alt={"Etherium"} width={50}
+                                          height={50} title={"Etherium"}
+                                          subtitle={"$1,990.01"}
+                                          othertitle={""} />
+                            </Suspense>
+                            <Suspense fallback={<p>Loading...</p>}>
+                                <CardItem src={"/card-item3.png"}
+                                          alt={"Dash"}
+                                          width={50}
+                                          height={50}
+                                          title={"Dash"}
+                                          subtitle={"$1,455.10"}
+                                          othertitle={""} />
+                            </Suspense>
+                            <Suspense fallback={<p>Loading...</p>}>
+                                <CardItem src={"/card-item4.png"}
+                                          alt={"Edo"}
+                                          width={50}
+                                          height={50}
+                                          title={"Edo"}
+                                          subtitle={"$988.07"}
+                                          othertitle={""} />
+                            </Suspense>
                         </div>
                     </Card>
                 </div>
@@ -163,7 +171,9 @@ export default function Home() {
                             </div>
                         </div>
                         <div className="w-5/6">
-                            <BenefitsChart />
+                            <Suspense fallback={<p>Loading...</p>}>
+                                <BenefitsChart />
+                            </Suspense>
                         </div>
                     </Card>
                 </div>

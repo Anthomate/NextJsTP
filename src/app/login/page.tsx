@@ -1,3 +1,5 @@
+'use client';
+
 import Head from 'next/head'
 import LoginForm from "@/components/form/login-form";
 
